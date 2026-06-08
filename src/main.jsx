@@ -5,9 +5,9 @@ import './styles.css';
 const navItems = ['首页', '经历', '精选项目', '作品', '联系'];
 
 const contacts = [
-  { label: 'Email', value: 'contact@gamertag.dev' },
-  { label: 'Bilibili', value: '@战术频道' },
-  { label: 'Discord', value: 'callsign#2042' },
+  { label: 'Email', value: 'mocker925@outlook.com' },
+  { label: 'Bilibili', value: '阿历克斯AMO' },
+  { label: '抖音', value: '阿历克斯AMO' },
 ];
 
 const experienceProjects = [
@@ -19,42 +19,45 @@ const experienceProjects = [
 
 const preferences = [
   {
-    title: 'TACTICAL FPS',
-    tag: '高压对抗',
-    desc: '偏爱强反馈枪感、载具协同、职业分工与信息差博弈，关注每一轮交火前后的选择成本。',
+    title: 'BATTLEFIELD',
+    tag: '全方位战场',
+    desc: '立体协同，团队配合，各司其职',
+    image: 'https://drop-assets.ea.com/images/tI8uztWe1sJU1DLuMCBM3/a5ec348e3d10bb48f42d1199ace1400a/BF6-January-Update-Article-03.png?im=AspectCrop=%2816,9%29,xPosition=0.5942708333333333,yPosition=0.37777777777777777',
   },
   {
-    title: 'SYSTEMIC WARFARE',
-    tag: '大战场系统',
-    desc: '喜欢可被玩家扰动的沙盒战场：压制、破坏、烟雾、声音与地形共同影响局势。',
+    title: 'unknow',
+    tag: 'null',
+    desc: 'text',
   },
   {
-    title: 'LEVEL FLOW',
-    tag: '地图节奏',
-    desc: '长期研究出生点、掩体密度、视线长度、夺点路径与队伍回流带来的体验曲线。',
+    title: 'unknow',
+    tag: 'null',
+    desc: 'text',
   },
 ];
 
 const works = [
   {
     type: '文章',
-    title: '为什么一张好地图会让失败也很爽',
-    meta: 'Level Design / 12 min read',
+    title: '江山留胜迹，我辈复登临',
+    meta: '小黑盒',
+    image: 'https://shared.st.dl.eccdnx.com/store_item_assets/steam/apps/3527290/31bac6b2eccf09b368f5e95ce510bae2baf3cfcd/header.jpg?t=1775581133',
+    href: 'https://api.xiaoheihe.cn/v3/bbs/app/api/web/share?h_camp=link&h_src=YXBwX3NoYXJl&link_id=8a3071fcff45',
   },
   {
     type: '文章',
-    title: '从压制感到可读性：大战场射击的声音设计',
-    meta: 'Game Audio / 9 min read',
+    title: 'null',
+    meta: 'unknow',
   },
   {
     type: '作品',
-    title: '代号 RALLY POINT：小队夺点原型',
-    meta: 'Prototype / Unreal blockout',
+    title: 'strike',
+    meta: '开发中',
   },
   {
     type: '作品',
-    title: 'HUD 指挥层：战术信息界面练习',
-    meta: 'UI Design / Interaction mockup',
+    title: 'city',
+    meta: '开发中',
   },
 ];
 
@@ -168,8 +171,12 @@ function Header() {
   return (
     <header className="site-header">
       <a className="brand" href="#home" aria-label="返回首页">
-        <span className="brand-mark">03</span>
-        <span>TACTICAL FEED</span>
+        <img
+          className="brand-mark"
+          src="https://github.com/mocker925.png"
+          alt="mocker925 GitHub 头像"
+        />
+        <span>mocker925</span>
       </a>
       <nav aria-label="主导航">
         {navItems.map((item) => (
@@ -178,7 +185,7 @@ function Header() {
           </a>
         ))}
       </nav>
-      <a className="header-contact" href="mailto:contact@gamertag.dev">联系我</a>
+      <a className="header-contact" href="mailto:mocker925@outlook.com">联系我</a>
     </header>
   );
 }
@@ -221,8 +228,8 @@ function Experience() {
         <div className="portrait-panel">
           <div className="portrait">
             <div className="portrait-glow" />
-            <span>CALLSIGN</span>
-            <strong>GHOST<br />VECTOR</strong>
+            <span>PLAYER</span>
+            <strong>mocker925</strong>
           </div>
         </div>
         <div className="profile-copy">
@@ -260,7 +267,11 @@ function FeaturedProjects() {
         </div>
         <div className="preference-grid">
           {preferences.map((item, index) => (
-            <article className="preference-card" key={item.title}>
+            <article
+              className={`preference-card${item.image ? ' has-image' : ''}`}
+              key={item.title}
+              style={item.image ? { '--preference-image': `url("${item.image}")` } : undefined}
+            >
               <span className="card-index">0{index + 1}</span>
               <div>
                 <p>{item.tag}</p>
@@ -284,13 +295,24 @@ function Works() {
           <h2>文章与游戏作品</h2>
         </div>
         <div className="works-grid">
-          {works.map((work) => (
-            <article className="work-card" key={work.title}>
-              <span>{work.type}</span>
-              <h3>{work.title}</h3>
-              <p>{work.meta}</p>
-            </article>
-          ))}
+          {works.map((work) => {
+            const CardTag = work.href ? 'a' : 'article';
+
+            return (
+              <CardTag
+                className={`work-card${work.image ? ' has-image' : ''}`}
+                href={work.href}
+                key={work.title}
+                rel={work.href ? 'noreferrer' : undefined}
+                target={work.href ? '_blank' : undefined}
+                style={work.image ? { '--work-image': `url("${work.image}")` } : undefined}
+              >
+                <span>{work.type}</span>
+                <h3>{work.title}</h3>
+                <p>{work.meta}</p>
+              </CardTag>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -303,10 +325,10 @@ function ContactFinale() {
       <div className="shell finale-inner">
         <p className="eyebrow">READY FOR DEPLOYMENT</p>
         <h2>一起聊游戏、地图、系统，或者下一次原型实验。</h2>
-        <a className="primary-button" href="mailto:contact@gamertag.dev">contact@gamertag.dev</a>
+        <a className="primary-button" href="mailto:mocker925@outlook.com">mocker925@outlook.com</a>
         <div className="finale-links">
-          <span>BILIBILI / @战术频道</span>
-          <span>DISCORD / callsign#2042</span>
+          <span>BILIBILI / 阿历克斯AMO</span>
+          <span>抖音 / 阿历克斯AMO</span>
           <span>LOCATION / ONLINE</span>
         </div>
       </div>

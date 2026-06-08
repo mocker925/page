@@ -115,13 +115,12 @@ a {
 }
 
 .brand-mark {
-  display: grid;
-  place-items: center;
   width: 42px;
   height: 42px;
   border: 1px solid rgba(104, 223, 255, 0.45);
   background: rgba(104, 223, 255, 0.08);
-  color: var(--orange);
+  object-fit: cover;
+  display: block;
 }
 
 nav {
@@ -449,6 +448,13 @@ h1 {
   overflow: hidden;
 }
 
+.preference-card.has-image {
+  background:
+    linear-gradient(180deg, rgba(5, 15, 22, 0.28), rgba(5, 15, 22, 0.88)),
+    var(--preference-image) center top / cover,
+    var(--panel);
+}
+
 .preference-card::before {
   content: "";
   position: absolute;
@@ -457,6 +463,12 @@ h1 {
     linear-gradient(145deg, rgba(104, 223, 255, 0.08), transparent 42%),
     radial-gradient(circle at 80% 24%, rgba(255, 122, 41, 0.22), transparent 26%);
   opacity: 0.9;
+}
+
+.preference-card.has-image::before {
+  background:
+    linear-gradient(90deg, rgba(4, 12, 18, 0.82), rgba(4, 12, 18, 0.18) 54%, rgba(4, 12, 18, 0.74)),
+    linear-gradient(180deg, rgba(104, 223, 255, 0.12), rgba(255, 122, 41, 0.2));
 }
 
 .preference-card > * {
@@ -496,12 +508,35 @@ h1 {
 }
 
 .work-card {
+  position: relative;
   min-height: 290px;
   padding: 26px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
   transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.work-card.has-image {
+  background:
+    linear-gradient(180deg, rgba(4, 13, 19, 0.34), rgba(4, 13, 19, 0.82)),
+    var(--work-image) center / cover,
+    var(--panel);
+}
+
+.work-card.has-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3, 11, 17, 0.72), rgba(3, 11, 17, 0.08) 48%, rgba(3, 11, 17, 0.62)),
+    linear-gradient(180deg, rgba(104, 223, 255, 0.08), rgba(255, 122, 41, 0.16));
+}
+
+.work-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .work-card:hover {
