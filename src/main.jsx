@@ -20,14 +20,15 @@ const experienceProjects = [
 const preferences = [
   {
     title: 'BATTLEFIELD',
-    tag: '全方位战场',
-    desc: '立体协同，团队配合，各司其职',
+    tag: '全面战争',
+    desc: '海陆空全方位立体协同作战',
     image: 'https://drop-assets.ea.com/images/tI8uztWe1sJU1DLuMCBM3/a5ec348e3d10bb48f42d1199ace1400a/BF6-January-Update-Article-03.png?im=AspectCrop=%2816,9%29,xPosition=0.5942708333333333,yPosition=0.37777777777777777',
   },
   {
-    title: 'unknow',
-    tag: 'null',
-    desc: 'text',
+    title: 'FINAL FANTASY XIV',
+    tag: '大型多人在线',
+    desc: '一段只属于玩家的冒险传奇',
+    image: 'https://static.web.sdo.com/jijiamobile/pic/ff14/wallpaper/20260423patch75/ffxiv_7.5patch_01_2560x1440.jpg',
   },
   {
     title: 'unknow',
@@ -199,13 +200,13 @@ function Hero() {
       <div className="hero-inner shell">
         <div className="status-line">
           <span>PLAYER</span>
-          <span>BLOGGER</span>
+          <span>UPLOADER</span>
           <span>GAME DESIGNER</span>
           <span>ONLINE</span>
         </div>
-        <h1>BUILDING GAMES FROM THE FRONTLINE</h1>
+        <h1>ENJOY GAMES<br />DESIGN FUN<br />LOVE THE WORLD</h1>
         <p>
-          我是一名游戏玩家、游戏博主与游戏设计师。记录战场，拆解系统，把每一次对局里的判断、压力和爽感，转译成可复盘的设计语言。
+          一名游戏玩家、游戏博主与游戏设计师。
         </p>
         <div className="hero-actions">
           <a className="primary-button" href="#作品">查看作品</a>
@@ -213,9 +214,9 @@ function Hero() {
         </div>
       </div>
       <div className="hero-metrics shell" aria-label="频道数据">
-        <span>FIELD NOTES / 128</span>
-        <span>PROTOTYPES / 06</span>
-        <span>MAP STUDIES / 24</span>
+        <span>FIELD NOTES / null</span>
+        <span>PROTOTYPES / 02</span>
+        <span>MAP STUDIES / null</span>
       </div>
     </section>
   );
@@ -234,7 +235,7 @@ function Experience() {
         </div>
         <div className="profile-copy">
           <p className="eyebrow">PERSONAL FILE</p>
-          <h2>从玩家视角出发，用设计师方法复盘游戏。</h2>
+          <h2>玩家视角，设计思维</h2>
           <p>
             我关注战术射击、多人协作、地图节奏与玩家心理。平时会做游戏文章、视频脚本、关卡 blockout、玩法原型和系统拆解，把主观体验整理成可讨论、可验证、可落地的设计判断。
           </p>
